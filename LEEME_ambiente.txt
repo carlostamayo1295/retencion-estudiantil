@@ -1,0 +1,39 @@
+CREAR Y ACTIVAR EL AMBIENTE VIRTUAL
+(Ejecutar en la terminal, dentro de la carpeta del proyecto)
+
+1. Crear el ambiente:
+   Windows:          python -m venv .venv
+   Mac / Linux:      python3 -m venv .venv
+
+2. Activarlo:
+   Windows (PowerShell):   .\.venv\Scripts\Activate.ps1
+   Windows (CMD):          .venv\Scripts\activate.bat
+   Mac / Linux:            source .venv/bin/activate
+
+   Sabrás que está activo porque aparece (.venv) al inicio de la línea de la terminal.
+
+3. Instalar las librerías:
+   python -m pip install -r requirements.txt
+
+4. Ejecutar el programa:
+   python analisis_desercion.py
+
+5. Para salir del ambiente:
+   deactivate
+
+Si ya tienes un entorno activo, ejecuta deactivate antes de activar .venv.
+El comando correcto es deactivate, no desactivate.
+Usa .venv para este proyecto. El entorno se crea localmente y no se incluye en la entrega.
+Si .venv ya existe, no necesitas crearlo otra vez.
+
+Para comprobar qué Python estás usando:
+   python -c "import sys; print(sys.executable)"
+La ruta debe terminar en .venv\Scripts\python.exe en Windows.
+
+En VS Code, si ya había otro intérprete seleccionado:
+   Ctrl+Shift+P > Python: Select Interpreter > .venv\Scripts\python.exe
+Después, cierra la terminal anterior y abre una nueva.
+
+Si PowerShell bloquea la activación, puedes usar el entorno sin activarlo:
+   .\.venv\Scripts\python.exe -m pip install -r requirements.txt
+   .\.venv\Scripts\python.exe analisis_desercion.py

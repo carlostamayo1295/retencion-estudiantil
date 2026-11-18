@@ -1,0 +1,27 @@
+paso,columna,accion,filas_afectadas,justificacion
+3. numéricos,asistencia_pct,Convertir guiones en nulos,202,"El guion representa ausencia de información, no cero."
+3. numéricos,asistencia_pct,Quitar símbolo %,300,Se conserva la escala 0 a 100; 85% se convierte en 85.
+3. numéricos,asistencia_pct,Convertir textos válidos a números,9948,Se necesitan valores numéricos para calcular estadísticas.
+3. numéricos,horas_trabajo_semana,Convertir guiones en nulos,2822,"El guion representa ausencia de información, no cero."
+3. numéricos,horas_trabajo_semana,Convertir textos válidos a números,7328,Se necesitan valores numéricos para calcular estadísticas.
+3. numéricos,distancia_km,Cambiar 999 por nulo,152,"Según la guía, 999 codifica un dato faltante y no una distancia real."
+4. categorías,programa,Unificar escritura,260,"Se corrigen espacios, mayúsculas, tildes y abreviaturas observadas; no se fusionan categorías distintas."
+4. categorías,jornada,Unificar escritura,485,"Se corrigen espacios, mayúsculas, tildes y abreviaturas observadas; no se fusionan categorías distintas."
+4. categorías,genero,Unificar escritura,559,"Se corrigen espacios, mayúsculas, tildes y abreviaturas observadas; no se fusionan categorías distintas."
+4. categorías,ciudad_procedencia,Unificar escritura,542,"Se corrigen espacios, mayúsculas, tildes y abreviaturas observadas; no se fusionan categorías distintas."
+5. fechas,fecha_matricula,Interpretar formato DD/MM/AAAA,3052,El formato explícito evita intercambiar día y mes.
+5. fechas,fecha_matricula,Interpretar formato AAAA-MM-DD,7098,"Ambos formatos se almacenan como fechas, sin perder registros."
+6. duplicados,todas,Eliminar filas idénticas,150,"Coinciden todas las columnas, incluido id_estudiante; se conserva la primera aparición."
+7. faltantes,promedio_acumulado,Eliminar filas sin nota,298,Se usa una población común con nota disponible; imputarla alteraría los promedios. La exclusión puede introducir sesgo.
+7. faltantes,ciudad_procedencia,Rellenar con Sin dato,96,Conserva al estudiante sin inventar su procedencia o tipo de colegio.
+7. faltantes,tipo_colegio,Rellenar con Sin dato,145,Conserva al estudiante sin inventar su procedencia o tipo de colegio.
+7. faltantes,asistencia_pct,Conservar nulos,197,No hay evidencia para reconstruir el valor; conservar nulos evita inventar observaciones.
+7. faltantes,distancia_km,Conservar nulos,334,No hay evidencia para reconstruir el valor; conservar nulos evita inventar observaciones.
+7. faltantes,motivo_retiro,Conservar nulos,6562,No aplica a estudiantes que no desertaron; no es un error y no se usa para predecir.
+8. valores fuera de rango,promedio_acumulado,Eliminar filas con nota fuera de 0 a 5,15,No se puede reconstruir la nota sin una fuente; se aplica el mismo criterio que a notas faltantes.
+8. valores fuera de rango,edad,Imputar mediana de edades válidas,12,"Se aplica el rango 15 a 60 del taller; mediana válida=22. Es una regla de revisión, no una imposibilidad biológica."
+8. valores fuera de rango,horas_trabajo_semana,Asignar cero a quienes no trabajan,2703,La columna trabaja permite deducir cero horas; no se aplica a quienes sí trabajan.
+8. valores fuera de rango,horas_trabajo_semana,Convertir horas fuera de 0 a 100 en nulos,29,Se aplica el umbral de revisión del taller; los valores observados de 200 exceden las horas de una semana.
+8. valores fuera de rango,horas_trabajo_semana,Imputar mediana de trabajadores,29,Se calcula solo con trabajadores y horas válidas: 24; incluir ceros de no trabajadores sesgaría la imputación.
+9. variables,desertor,Crear indicador booleano,9687,"True identifica desertores; su promedio es la tasa sobre todos los estudiantes del grupo, incluidos graduados."
+9. variables,cuartil_asistencia,Agrupar asistencia conocida en cuartiles,9490,Facilita comparar grupos de tamaño parecido; los empates causan pequeñas diferencias y los nulos no reciben cuartil.
